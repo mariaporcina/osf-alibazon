@@ -1,8 +1,39 @@
+/* general */
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+/* header */
+header{}
+header .container{}
+.header__title{}
+.headerNavigation{}
+.headerNavigation__menu{}
+.headerNavigation__item{}
+.headerNavigation__item a{}
+
+/* main */
+main{}
+.titleSection{}
+.titleSection .container{}
+.titleSection__title{}
+.titleSection__description{}
+
+.categoriesSection{}
+.categoriesSection .container{}
+.categoriesSection__list{}
+.categoriesSection__item{}
+.categoriesSection__item a{}
+.categoriesSection__image{}
+.categoriesSection__image img{}
+.categoriesSection__image figcaption{}
+
+/* footer */
+footer{}
+footer .container{}
+.footer__title{}
+.footer__copyright{}
