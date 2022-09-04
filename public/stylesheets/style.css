@@ -9,10 +9,17 @@ a {
 
 /* header */
 header{}
-header .container{}
+header .container{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
 .header__title{}
 .headerNavigation{}
-.headerNavigation__menu{}
+.headerNavigation__menu{
+  display: flex;
+  gap: 10px;
+}
 .headerNavigation__item{}
 .headerNavigation__item a{}
 
