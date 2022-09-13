@@ -3,27 +3,34 @@
 <main>
     <%=  %>
     <section class="titleSection">
-    <div class="container">
-        <h2 class="titleSection__title">Alibazon Store</h2>
-        <p class="titleSection__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, repellat inventore reprehenderit perferendis facere dolores hic? Sit neque in harum delectus voluptatibus accusamus rerum provident perferendis laudantium voluptatum? Minima, laudantium?</p>
-    </div>
+        <div class="container">
+            <h2 class="titleSection__title">Alibazon Store</h2>
+            <p class="titleSection__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, repellat inventore reprehenderit perferendis facere dolores hic? Sit neque in harum delectus voluptatibus accusamus rerum provident perferendis laudantium voluptatum? Minima, laudantium?</p>
+        </div>
     </section>
 
     <section class="categoriesSection">
-    <div class="container">
-        <ul class="categoriesSection__list">
-        <% for(let i = 0; i < categories.length; i++) { %>
-        <li class="categoriesSection__item">
-            <a href="<%= `/category/${ categories[i].id }` %>">
-            <figure class="categoriesSection__image">
-                <img src="/images/categories/womens-jewelry-necklaces.png" alt="Women category">
-                <figcaption><%= categories[i].name %></figcaption>
-            </figure>
-            </a>
-        </li>
-        <% } %>
-        </ul>
-    </div>
+        <div class="container">
+            <ul class="categoriesSection__list">
+                <% for(let i = 0; i < categories.length; i++) { %>
+                <li class="categoriesSection__item">
+                    <a href="<%= `/${ categories[i].id }` %>">
+
+                        <% if(!categories[i].image.includes('404')) { %>
+                        <figure class="categoriesSection__image">
+                            <img src="<%= `/images/${ categories[i].image }` %>" alt="<%= categories[i].page_title %>">
+                            <figcaption class="hidden"><%= categories[i].page_title %></figcaption>
+                        </figure>
+                        <% } %>
+
+                        <h2><%= categories[i].name %></h2>
+                        <h3><%= categories[i].page_title %></h3>
+                        <p><%= categories[i].page_description %></p>
+                    </a>
+                </li>
+                <% } %>
+            </ul>
+        </div>
     </section>
 </main>
 

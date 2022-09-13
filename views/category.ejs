@@ -1,5 +1,31 @@
 <%- include('components/header.ejs'); -%>
 
-<h1><%= categories %></h1>
+<main>
+    <section class="categoriesSection">
+        <div class="container">
+            <ul class="categoriesSection__list">
+                <% if(categories) {
+                    for(let i = 0; i < categories.length; i++) { %>
+                <li class="categoriesSection__item">
+                    <a href="<%= `/${ categories[i].id }` %>">
+
+                        <% if(!categories[i].image.includes('404')) { %>
+                        <figure class="categoriesSection__image">
+                            <img src="<%= `/images/${ categories[i].image }` %>" alt="<%= categories[i].page_title %>">
+                            <figcaption class="hidden"><%= categories[i].page_title %></figcaption>
+                        </figure>
+                        <% } %>
+
+                        <h2><%= categories[i].name %></h2>
+                        <h3><%= categories[i].page_title %></h3>
+                        <p><%= categories[i].page_description %></p>
+                    </a>
+                </li>
+                <% }
+                } %>
+            </ul>
+        </div>
+    </section>
+</main>
 
 <%- include('components/footer.ejs'); -%>
