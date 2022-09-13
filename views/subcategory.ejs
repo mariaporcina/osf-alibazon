@@ -1,0 +1,36 @@
+<%- include('components/header.ejs'); -%>
+
+<main>
+    <section class="categoriesSection">
+        <div class="container">
+            <ul class="categoriesSection__list">
+                <% if(categories) {
+                    for(let i = 0; i < categories.length; i++) {
+                        const currentCategory = categories[i] %>
+
+                        <li class="categoriesSection__item">
+                            <a href="<%= `/${ currentCategory.parent_category_id }/${ currentCategory.id }` %>">
+
+                                <% if(!currentCategory.image.includes('404')) { %>
+                                <figure class="categoriesSection__image">
+                                    <img src="<%= `/images/${ currentCategory.image }` %>" alt="<%= currentCategory.page_title %>">
+                                    <figcaption class="hidden"><%= currentCategory.page_title %></figcaption>
+                                </figure>
+                                <% } %>
+
+                                <h2><%= currentCategory.name %></h2>
+                                <h3><%= currentCategory.page_title %></h3>
+                                <p><%= currentCategory.page_description %></p>
+                            </a>
+                        </li>
+
+                <%
+                    }
+                }
+                %>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<%- include('components/footer.ejs'); -%>
