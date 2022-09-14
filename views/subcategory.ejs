@@ -7,9 +7,8 @@
                 <% if(categories) {
                     for(let i = 0; i < categories.length; i++) {
                         const currentCategory = categories[i] %>
-
                         <li class="categoriesSection__item">
-                            <a href="<%= `/${ currentCategory.parent_category_id }/${ currentCategory.id }` %>">
+                            <a href="<%= (!subcategory) ? `/${ currentCategory.parent_category_id }/${ currentCategory.id }` : `/${ rootCategory }/${ currentCategory.parent_category_id }/${ currentCategory.id }`  %>">
 
                                 <% if(!currentCategory.image.includes('404')) { %>
                                 <figure class="categoriesSection__image">

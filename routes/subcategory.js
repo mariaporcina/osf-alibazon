@@ -11,25 +11,17 @@ router.get('/:category', async function(req, res, next) {
 
     const categories = response.data;
 
-    res.render('subcategory', { title: 'Alibazon', categories: categories })
+    res.render('subcategory', { title: 'Alibazon', categories: categories, subcategory: false })
 });
 
 router.get('/:category/:subCategory', async function(req, res, next) {
     const subCategoryId = req.params.subCategory;
+    const categoryId = req.params.category;
     const response = await axios.get(`${BASE_URL}/categories/parent/${subCategoryId}?secretKey=${SECRET_KEY}`)
 
     const categories = response.data;
 
-    res.render('subcategory', { title: 'Alibazon', categories: categories })
+    res.render('subcategory', { title: 'Alibazon', categories: categories, subcategory: true, rootCategory: categoryId })
 });
-
-// router.get('/:category/:subCategory/:subsubCategory', async function(req, res, next) {
-//     const subsubCategoryId = req.params.subsubCategory;
-//     const response = await axios.get(`${BASE_URL}/categories/parent/${subsubCategoryId}?secretKey=${SECRET_KEY}`)
-
-//     const categories = response.data;
-
-//     res.render('category', { title: 'Alibazon', categories: categories })
-// });
 
 module.exports = router;
