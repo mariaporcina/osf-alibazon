@@ -1,0 +1,10 @@
+<nav class="breadcrumbsNavigation">
+    <div class="container">
+        <ul class="breadcrumbsNavigation__list">
+            <% for(let i = 0; i < breadcrumbs.length; i++) {
+                const currentBreadcrumb = breadcrumbs[i]; %>
+                <li class="breadcrumbsNavigation__item"><a href="<%= `${ currentBreadcrumb.url }` %>"><%= currentBreadcrumb.name %></a></li>
+            <% } %>
+        </ul>
+    </div>
+</nav>
