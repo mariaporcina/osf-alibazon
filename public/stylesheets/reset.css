@@ -12,6 +12,13 @@
     padding: 0;
     box-sizing: border-box;
   }
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover{
+    color: initial;
+  }
   /*
     3. Allow percentage-based heights in the application
   */

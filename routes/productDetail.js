@@ -35,10 +35,14 @@ router.get('/:category/:subCategory/:subsubCategory/:product', async function(re
         breadcrumbs.push({ url: breadcrumbUrl, name: breadcrumbName });
     }
 
+    const largeImage = product[0].image_groups.find(item => item.view_type === 'large' && !item.variation_value);
+    console.log(largeImage);
+
     res.render('productDetail', {
         title: 'Alibazon',
         product: product[0],
-        breadcrumbs: breadcrumbs
+        breadcrumbs: breadcrumbs,
+        largeImages: largeImage.images
     });
 });
 

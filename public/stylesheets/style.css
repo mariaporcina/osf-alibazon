@@ -3,16 +3,15 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
-}
-
 .hidden{
   display: none;
 }
 
 /* header */
-header{}
+header{
+  background-color: #ededed;
+  padding: 8px 0;
+}
 header .container{
   display: flex;
   align-items: center;
@@ -27,6 +26,17 @@ header .container{
 .headerNavigation__item{}
 .headerNavigation__item a{}
 
+.headerAuthentication{
+  flex-grow: 1;
+}
+.headerAuthentication__menu{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.headerAuthentication__item{}
+.headerAuthentication__item a{}
+
 /* main */
 main{}
 .titleSection{}
@@ -36,12 +46,41 @@ main{}
 
 .categoriesSection{}
 .categoriesSection .container{}
-.categoriesSection__list{}
-.categoriesSection__item{}
-.categoriesSection__item a{}
+.categoriesSection__list{
+  display: flex;
+  gap: 20px;
+}
+.categoriesSection__item{
+  background-color: #ededed;
+  border-radius: 8px;
+  flex-basis: 50%;
+  border: 1px solid #e8306e;
+}
+.categoriesSection__item:hover{
+  border: 1px solid #ededed;
+  background-color: #e8306e;
+}
+.categoriesSection__item a{
+  padding: 28px;
+  display: inline-block;
+}
 .categoriesSection__image{}
 .categoriesSection__image img{}
 .categoriesSection__image figcaption{}
+.categoriesSection__item h2{
+  font-size: 2rem;
+  color: #e8306e;
+}
+.categoriesSection__item:hover h2, .categoriesSection__item:hover h3, .categoriesSection__item:hover p{
+  color: #fff;
+}
+.categoriesSection__item h3{
+  margin: 8px 0 22px;
+  font-size: 1.2rem;
+}
+.categoriesSection__item p{
+  font-size: 1rem;
+}
 
 /* footer */
 footer{}

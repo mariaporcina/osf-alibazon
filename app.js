@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const subcategoryRouter = require('./routes/subcategory');
 const productGridRouter = require('./routes/productGrid');
 const productDetailRouter = require('./routes/productDetail');
+const authenticationRouter = require('./routes/authentication');
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/', authenticationRouter);
 app.use('/', subcategoryRouter);
 app.use('/', productGridRouter);
 app.use('/', productDetailRouter);
