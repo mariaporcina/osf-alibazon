@@ -1,6 +1,11 @@
+// required
 const axios = require('axios');
 
+// helpers
 const constantValues = require('../helpers/constantValues');
+
+// scripts
+const breadcrumbsGenerator = require('../scripts/breadcrumbsGenerator');
 
 const getCategory = async (req, res, next) => {
     const categoryId = req.params.category;
@@ -9,14 +14,7 @@ const getCategory = async (req, res, next) => {
     .then(res => res.data)
     .catch(err => console.error(err));
 
-    const breadcrumbName = categoryId[0].toUpperCase() + categoryId.slice(1);
-
-    const breadcrumbs = [
-        {
-            url: `/${ categoryId }`,
-            name: breadcrumbName,
-        }
-    ];
+    const breadcrumbs = breadcrumbsGenerator.mountBreadcrumbs(req.params);
 
     res.render('subcategory', {
         title: 'Alibazon',
@@ -34,26 +32,7 @@ const getSubcategory = async (req, res, next) => {
     .then(res => res.data)
     .catch(err => console.error(err));
 
-    const breadcrumbs = [];
-
-    let breadcrumbUrl = '';
-    for (let paramater in req.params){
-        const currentParameter = req.params[paramater];
-        let breadcrumbName = '';
-
-        if(currentParameter.includes('-')){
-            let splited = currentParameter.split('-');
-            for(let i = 0; i < splited.length; i++) {
-                splited[i] = splited[i][0].toUpperCase() + splited[i].slice(1);
-            };
-            breadcrumbName = splited.join(' ');
-        } else {
-            breadcrumbName = currentParameter[0].toUpperCase() + currentParameter.slice(1);
-        }
-
-        breadcrumbUrl += `/${ currentParameter }`;
-        breadcrumbs.push({ url: breadcrumbUrl, name: breadcrumbName });
-    }
+    const breadcrumbs = breadcrumbsGenerator.mountBreadcrumbs(req.params);
 
     res.render('subcategory', {
         title: 'Alibazon',

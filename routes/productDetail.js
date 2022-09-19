@@ -36,7 +36,6 @@ router.get('/:category/:subCategory/:subsubCategory/:product', async function(re
     }
 
     const largeImage = product[0].image_groups.find(item => item.view_type === 'large' && !item.variation_value);
-    console.log(largeImage);
 
     res.render('productDetail', {
         title: 'Alibazon',
